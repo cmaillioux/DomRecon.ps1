@@ -12,7 +12,7 @@ $erroractionPreference = 'silentlycontinue'
 $target = Read-Host "[?] Domain to query [domain.com]"
 $dict = Read-Host "[?] Path to Wordlist [.\path\to\file.txt]"
 
-foreach ($line in Get-Content .\common.txt) {
+foreach ($line in Get-Content $dict) {
     write-host "[*] test $line.$target"
     if (resolve-dnsname -Name $line'.'$target) {
     $test = resolve-dnsname -Name $line'.'$target | Format-list -Property IPAddress | out-string    
